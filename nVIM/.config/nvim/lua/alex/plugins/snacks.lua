@@ -207,7 +207,7 @@ return {
 			{
 				"<leader>pc",
 				function()
-					require("snacks").picker.files({ cwd = "~/dotfiles/nvim/.config/nvim/lua" })
+					require("snacks").picker.files({ cwd = "~/dotfiles/nVIM/.config/nvim/" })
 				end,
 				desc = "Find Config File",
 			},

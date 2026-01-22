@@ -192,7 +192,8 @@ return {
                 },
             },
         })
-
+        
+        vim.lsp.enable("cssls")
         vim.lsp.enable("lua_ls")
         vim.lsp.enable("emmet_language_server")
         vim.lsp.enable("emmet_ls")
@@ -200,5 +201,6 @@ return {
         vim.lsp.enable("gopls")
         vim.lsp.enable("astro")
         vim.lsp.enable("tailwindcss")
+        vim.lsp.enable("angularls")
     end,
 }
