@@ -1,0 +1,159 @@
+{
+    "reload/_style/_on/_change": true,
+    "include": [
+        "$HOME/.config/waybar/modules/Modules",
+        "$HOME/.config/waybar/modules/ModulesCustom",
+        "$HOME/.config/waybar/modules/ModulesWorkspaces"
+    ],
+    "layer": "top",
+    "position": "top",
+
+    "margin-top": 2,
+    "margin-left": 4,
+    "margin-right": 4,
+
+    "modules-left": [
+        "clock",
+        "custom/separator#blank",
+        "custom/pacman",
+        "tray"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "group/expand",
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "battery",
+        "custom/notifications",
+        "custom/separator#blank",
+        "group/audio",
+        "custom/separator#blank",
+        "custom/power"
+    ],
+  
+  "custom/logo": {
+    "format": "󰊠",
+    "tooltip": false,
+    "on-click": "~/.config/rofi/scripts/powermenu.sh"
+  },
+  "custom/notifications": {
+    "tooltip": true,
+    "format": "<span size='16pt'>󰚢</span> ",
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+
+
+  
+  "hyprland/window": {
+    "format": "O {}",
+    "rotate": 0,
+    "separate-outputs": true,
+    "max-lenght": 1000
+  },
+
+  "group/expand": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 600,
+      "transition-to-left": true,
+      "click-to-reveal": true,
+    },
+    "modules": ["custom/expand", "custom/colorpicker", "cpu", "memory", "temperature", "custom/endpoint"],
+  },
+
+  "custom/expand": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/endpoint": {
+    "format": "|",
+    "tooltip": false,
+  },
+  "custom/colorpicker": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": "once",
+    "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
+    "on-click": "~/.config/waybar/scripts/colorpicker.sh",
+    "signal": 1,
+  },
+  "cpu": {
+    "format": "",
+    "tooltip": true,
+  },
+  "memory": {
+    "format": ""
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "",
+  },
+
+  "pulseaudio": {
+    "format": "{volume:2}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "MUTE",
+    "format-icons": {
+	"headphones": "",
+	"default": [
+		"",
+		""
+    	]
+    },
+    "scroll-step": 5,
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol"
+  },
+
+  "bluetooth": {
+    "format-on": "",
+    "format-off": "BT-off",
+    "format-disabled": "󰂲",
+    "format-connected-battery": "{device_battery_percentage}%󰥉",
+    "format-alt": "{device_alias} ",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
+    "on-click-right": "blueman-manager",
+  },
+
+  "battery": {
+    "interval": 30,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% 󰂄",
+    "tooltip": "{time} {icon}",
+    "format-icons": [
+      "󰂃",
+      "󰁻",
+      "󰁽",
+      "󰁿",
+      "󰂁",
+      "󰁹",
+    ],
+  },
+  "network": {
+    "format-wifi": "󰖩",
+    "format-ethernet": "󰈁",
+    "format-disconnected": "󰤮",
+    "tooltip-format-disconnected": "Error",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰖩",
+    "tooltip-format-ethernet": "{ifname} 󰈁",
+    "on-click": "kitty nmtui"
+  }
+}

@@ -1,0 +1,18 @@
+/* Custom Waybar Modules */
+
+{
+    "custom/pacman": {
+        "format": "  {}",
+        "interval": 60,
+        "exec": "checkupdates | wc -l",
+        "on-click": "",
+        "signal": 8,
+        "tooltip": false,
+    },
+
+    "custom/separator#blank": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    }
+}

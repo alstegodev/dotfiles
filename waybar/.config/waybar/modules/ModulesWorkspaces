@@ -1,0 +1,27 @@
+/* Possible Hyprland Workspace Configs */
+
+{
+    "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
+        "show-special": false,
+        "on-click": "activate",
+
+        "format": "{icon}",
+        "format-icons" : {
+            "1": "A",
+            "2": "B",
+            "3": "C",
+            "4": "D",
+            "5": "E",
+            "6": "F",
+            "7": "G",
+            "8": "H",
+            "9": "I",
+            "10": "J",
+        },
+        "persistent-workspaces": {
+            "*": [ 1,2,3,4,5 ]
+        }
+    },
+}
